@@ -12,23 +12,24 @@ message: "This node is using common data"
 #                 mykey:
 #                         type: 'ssh-rsa'
 #                         key:  'mykeydata=='
-# users_deployer:
-#     deploy:
-#         ensure: present
-#         uid: 1001
-#         gid: staff
-#         groups: - wheel
-#         comment: "@devopnik"
-#         managehome: true
-#         ssh_authorized_keys:
-#                 mykey:
-#                         type: 'ssh-rsa'
-#                         key:  'mykeydata=='
+users_deployer:
+    deploy:
+        ensure: present
+        uid: 1001
+        gid: staff
+        groups:
+          - wheel
+        comment: "@devopnik"
+        managehome: true
+        ssh_authorized_keys:
+                mykey:
+                        type: 'ssh-rsa'
+                        key:  'mykeydata=='
 #Puppet Server Tuning
-puppet_enterprise::master::puppetserver::jruby_max_requests_per_instance: 0
-classes:
-  - epel
-  - rvm
+# puppet_enterprise::master::puppetserver::jruby_max_requests_per_instance: 0
+# classes:
+  # - epel
+  # - rvm
   # - sensu
 # sensu::install_repo: false
 # sensu::purge:
